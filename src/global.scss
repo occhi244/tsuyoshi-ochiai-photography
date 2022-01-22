@@ -1,0 +1,29 @@
+$nav_height: 1.6rem;
+$portfolio_sidebar_width: 8.4rem;
+$full_height: calc(var(--vh, vh) * 100);
+
+// timing functions
+// https://qiita.com/s-kato/items/d5d1ceee9e2a28e02e6e
+$ease_in_sine:    cubic-bezier(0.47,  0,     0.745, 0.715);
+$ease_out_sine:   cubic-bezier(0.39,  0.575, 0.565, 1    );
+$ease_inout_sine: cubic-bezier(0.445, 0.05,  0.55,  0.95 );
+
+// Animated underline
+// direction, height, margin_bottom, duration
+@mixin animated_underline($direction, $height, $margin_bottom, $duration) {
+  position: absolute;
+  bottom: $margin_bottom;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: $height;
+  background-color: currentColor;
+  will-change: transform;
+  transform: scale(0, 1);
+  transform-origin: $direction top;
+  transition: {
+    property: transform;
+    timing-function: $ease_out_sine;
+    duration: $duration;
+  }
+}
