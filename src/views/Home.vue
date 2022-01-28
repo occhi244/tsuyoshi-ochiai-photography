@@ -21,6 +21,9 @@
       </div>
     </div>
     <about-link :is-mouse-enabled="isShowAbout" />
+    <div class="portfolio-link">
+      <router-link to="/portfolio">PORTFOLIO</router-link>
+    </div>
     <div class="copyright-block">
       <div class="copyright-notice" :class="{ 'is-title-blink': isTitleBlink }">
         <h3>&copy; Tsuyoshi OCHIAI - All rights reserved.</h3>
@@ -122,6 +125,9 @@ export default defineComponent({
       window.addEventListener("wheel", scrollWheelListener, {
         passive: false
       });
+      if (getPointingDevice() !== PointingDeviceMouse) {
+        gsap.set(".portfolio-link", { display: "none" });
+      }
     });
     onBeforeUnmount(() => {
       window.removeEventListener("wheel", scrollWheelListener);
@@ -225,6 +231,24 @@ $slide_background_color: rgba(#333, 0.4);
           delay: 0.4s;
         }
       }
+    }
+  }
+
+  // portfolio link
+  .portfolio-link {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0 0.2rem;
+    font-size: 1.2rem;
+
+    &::after {
+      @include animated_underline(right, 2px, 0.2rem, 0.4s);
+    }
+    &:hover::after {
+      transform: scale(1, 1);
     }
   }
 

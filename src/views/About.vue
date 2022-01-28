@@ -26,7 +26,8 @@
           <a href="https://www.instagram.com/masahiro.wada.90/"
             >Masahiro WADA</a
           >
-          for taking photographs of Japanese crane and Hokkaido scenery.
+          to support for taking photographs of Japanese crane and Hokkaido
+          scenery.
         </p>
       </div>
       <div class="content-block">
